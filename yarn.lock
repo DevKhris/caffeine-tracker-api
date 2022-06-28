@@ -859,7 +859,7 @@
     "uuid" "8.3.2"
     "ws" "8.7.0"
 
-"@nestjs/mapped-types@1.0.1":
+"@nestjs/mapped-types@*", "@nestjs/mapped-types@1.0.1":
   "integrity" "sha512-NFvofzSinp00j5rzUd4tf+xi9od6383iY0JP7o0Bnu1fuItAUkWBgc4EKuIQ3D+c2QI3i9pG1kDWAeY27EMGtg=="
   "resolved" "https://registry.npmjs.org/@nestjs/mapped-types/-/mapped-types-1.0.1.tgz"
   "version" "1.0.1"
