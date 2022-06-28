@@ -2,7 +2,11 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  get(): string {
+    return 'Welcome to Coffeine Tracker API';
+  }
+
+  health(): object {
+    return { status: 'OK', code: '200' };
   }
 }
