@@ -2,10 +2,10 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Mug {
+type MugType {
   id: Int!
-  mug_type_id: Float!
-  servedAt: DateTime!
+  name: String!
+  caffeine: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
   deleteAt: DateTime!
@@ -16,10 +16,10 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
-type MugType {
+type Mug {
   id: Int!
-  name: String!
-  caffeine: Float!
+  mugType: MugType!
+  servedAt: DateTime!
   createdAt: DateTime!
   updatedAt: DateTime!
   deleteAt: DateTime!
@@ -50,12 +50,12 @@ input UpdateMugInput {
 }
 
 input CreateMugTypeInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
+  caffeine: Float!
 }
 
 input UpdateMugTypeInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  name: String
+  caffeine: Float
   id: Int!
 }

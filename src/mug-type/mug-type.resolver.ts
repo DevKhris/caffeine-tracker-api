@@ -9,7 +9,9 @@ export class MugTypeResolver {
   constructor(private readonly mugTypeService: MugTypeService) {}
 
   @Mutation(() => MugType)
-  createMugType(@Args('createMugTypeInput') createMugTypeInput: CreateMugTypeInput) {
+  createMugType(
+    @Args('createMugTypeInput') createMugTypeInput: CreateMugTypeInput,
+  ) {
     return this.mugTypeService.create(createMugTypeInput);
   }
 
@@ -24,8 +26,13 @@ export class MugTypeResolver {
   }
 
   @Mutation(() => MugType)
-  updateMugType(@Args('updateMugTypeInput') updateMugTypeInput: UpdateMugTypeInput) {
-    return this.mugTypeService.update(updateMugTypeInput.id, updateMugTypeInput);
+  updateMugType(
+    @Args('updateMugTypeInput') updateMugTypeInput: UpdateMugTypeInput,
+  ) {
+    return this.mugTypeService.update(
+      updateMugTypeInput.id,
+      updateMugTypeInput,
+    );
   }
 
   @Mutation(() => MugType)

@@ -1,3 +1,4 @@
+import { Mug } from './../../mug/entities/mug.entity';
 import {
   Entity,
   Column,
@@ -6,6 +7,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  OneToMany,
 } from 'typeorm';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 
@@ -23,6 +25,9 @@ export class MugType extends BaseEntity {
   @Field()
   @Column({ type: 'decimal' })
   caffeine: number;
+
+  @OneToMany(() => Mug, (mug) => mug.mugType)
+  mugs: Mug;
 
   @Field()
   @CreateDateColumn({ name: 'created_at' })

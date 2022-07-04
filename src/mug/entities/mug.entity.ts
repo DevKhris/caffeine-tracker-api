@@ -1,3 +1,4 @@
+import { MugType } from './../../mug-type/entities/mug-type.entity';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import {
   Entity,
@@ -7,6 +8,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  ManyToOne,
 } from 'typeorm';
 
 @ObjectType()
@@ -17,8 +19,8 @@ export class Mug extends BaseEntity {
   id: number;
 
   @Field()
-  @Column()
-  mug_type_id: number;
+  @ManyToOne(() => MugType, (mugType) => mugType.mugs)
+  mugType: MugType;
 
   @Field()
   @Column({ name: 'served_at' })

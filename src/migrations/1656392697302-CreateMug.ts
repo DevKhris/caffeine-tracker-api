@@ -13,11 +13,6 @@ export class CreateMug1656392697302 implements MigrationInterface {
         generationStrategy: 'increment',
       },
       {
-        name: 'mug_type_id',
-        type: 'INTEGER',
-        isUnique: false,
-      },
-      {
         name: 'served_at',
         type: 'timestamptz',
         isPrimary: false,

@@ -10,8 +10,9 @@ export class MugTypeService {
     @Inject('MUG_TYPE_REPOSITORY')
     private mugTypeRepository: Repository<MugType>,
   ) {}
+
   create(createMugTypeInput: CreateMugTypeInput) {
-    return 'This action adds a new mugType';
+    return this.mugTypeRepository.create(createMugTypeInput);
   }
 
   findAll() {
@@ -19,14 +20,14 @@ export class MugTypeService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} mugType`;
+    return this.mugTypeRepository.findOneByOrFail({ id: id });
   }
 
   update(id: number, updateMugTypeInput: UpdateMugTypeInput) {
-    return `This action updates a #${id} mugType`;
+    return this.mugTypeRepository.update(id, updateMugTypeInput);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} mugType`;
+    return this.mugTypeRepository.delete(id);
   }
 }

@@ -9,6 +9,7 @@ import { MugModule } from './mug/mug.module';
 import { MugTypeModule } from './mug-type/mug-type.module';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { AuthzModule } from './authz/authz.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { AuthzModule } from './authz/authz.module';
     MugModule,
     MugTypeModule,
     AuthzModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
