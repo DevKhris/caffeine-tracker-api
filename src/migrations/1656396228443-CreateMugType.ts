@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateMug1656392697302 implements MigrationInterface {
-  private mugTable = new Table({
+export class CreateMugType1656396228443 implements MigrationInterface {
+  private mugTypeTable = new Table({
     name: 'mugs',
     columns: [
       {
@@ -13,16 +13,14 @@ export class CreateMug1656392697302 implements MigrationInterface {
         generationStrategy: 'increment',
       },
       {
-        name: 'mug_type_id',
-        type: 'INTEGER',
-        isUnique: false,
+        name: 'name',
+        type: 'STRING',
+        isUnique: true,
       },
       {
-        name: 'served_at',
-        type: 'timestamptz',
-        isPrimary: false,
+        name: 'caffeine',
+        type: 'DECIMAL',
         isNullable: true,
-        default: 'now()',
       },
       {
         name: 'created_at',
@@ -47,12 +45,11 @@ export class CreateMug1656392697302 implements MigrationInterface {
       },
     ],
   });
-
   public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.createTable(this.mugTable);
+    await queryRunner.createTable(this.mugTypeTable);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable(this.mugTable);
+    await queryRunner.dropTable(this.mugTypeTable);
   }
 }

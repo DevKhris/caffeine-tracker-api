@@ -15,8 +15,8 @@ export class MugService {
     return 'This action adds a new mug';
   }
 
-  findAll() {
-    return `This action returns all mug`;
+  findAll(userId: number): Promise<Mug[]> {
+    return this.mugRepository.findBy({});
   }
 
   findOne(id: number) {

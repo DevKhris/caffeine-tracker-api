@@ -1,8 +1,15 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  app.enableCors();
+  app.useGlobalPipes(
+    new ValidationPipe({
+      disableErrorMessages: process.env.NODE_ENV === 'develop' ? false : true,
+    }),
+  );
+  await app.listen(process.env.port);
 }
 bootstrap();

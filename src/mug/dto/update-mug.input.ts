@@ -5,4 +5,7 @@ import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 export class UpdateMugInput extends PartialType(CreateMugInput) {
   @Field(() => Int)
   id: number;
+
+  @Field(() => String)
+  type: string;
 }

@@ -3,12 +3,12 @@
 # ------------------------------------------------------
 
 type Mug {
-  id: Float!
-  type: String!
-  caffeine: Float!
+  id: Int!
+  mug_type_id: Float!
   servedAt: DateTime!
   createdAt: DateTime!
   updatedAt: DateTime!
+  deleteAt: DateTime!
 }
 
 """
@@ -16,14 +16,27 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type MugType {
+  id: Int!
+  name: String!
+  caffeine: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deleteAt: DateTime!
+}
+
 type Query {
   mug(id: Int!): Mug!
+  mugType(id: Int!): MugType!
 }
 
 type Mutation {
   createMug(createMugInput: CreateMugInput!): Mug!
   updateMug(updateMugInput: UpdateMugInput!): Mug!
   removeMug(id: Int!): Mug!
+  createMugType(createMugTypeInput: CreateMugTypeInput!): MugType!
+  updateMugType(updateMugTypeInput: UpdateMugTypeInput!): MugType!
+  removeMugType(id: Int!): MugType!
 }
 
 input CreateMugInput {
@@ -32,7 +45,17 @@ input CreateMugInput {
 }
 
 input UpdateMugInput {
-  """Mug Type field"""
-  type: String
+  type: String!
+  id: Int!
+}
+
+input CreateMugTypeInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateMugTypeInput {
+  """Example field (placeholder)"""
+  exampleField: Int
   id: Int!
 }

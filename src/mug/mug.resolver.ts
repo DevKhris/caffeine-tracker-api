@@ -14,8 +14,8 @@ export class MugResolver {
   }
 
   @Query(() => [Mug], { name: 'mug' })
-  findAll() {
-    return this.mugService.findAll();
+  findAll(@Args('user_id') userId: number) {
+    return this.mugService.findAll(userId);
   }
 
   @Query(() => Mug, { name: 'mug' })

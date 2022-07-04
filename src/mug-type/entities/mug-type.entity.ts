@@ -1,28 +1,28 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   BaseEntity,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
 } from 'typeorm';
+import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
 @Entity()
-export class Mug extends BaseEntity {
+export class MugType extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
   @Column()
-  mug_type_id: number;
+  name: string;
 
   @Field()
-  @Column({ name: 'served_at' })
-  servedAt: Date;
+  @Column({ type: 'decimal' })
+  caffeine: number;
 
   @Field()
   @CreateDateColumn({ name: 'created_at' })
